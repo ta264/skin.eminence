@@ -67,21 +67,21 @@
                     <description>Shutdown</description>
                     <include>DefContextMenuButton</include>
                     <label>13005</label>
-                    <onclick>ShutDown()</onclick>
+                    <onclick>XBMC.RunScript(service.mythtv.powersave, powerfunc=ShutDown)</onclick>
                 </control>
 
                 <control type="button" id="3117">
                     <description>Suspend xbmc</description>
                     <include>DefContextMenuButton</include>
                     <label>13011</label>
-                    <onclick>XBMC.Suspend()</onclick>
+                    <onclick>XBMC.RunScript(service.mythtv.powersave, powerfunc=Suspend)</onclick>
                 </control>
 
                 <control type="button" id="3118">
                     <description>Reboot button</description>
                     <include>DefContextMenuButton</include>
                     <label>13013</label>
-                    <onclick>XBMC.Reset()</onclick>
+                    <onclick>XBMC.RunScript(service.mythtv.powersave, powerfunc=Reset)</onclick>
                 </control>
 
                 
