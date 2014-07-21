@@ -7,8 +7,10 @@
 	<onunload>ClearProperty(bgwidget,home)</onunload>
 	<onunload>ClearProperty(bgwidget.type,home)</onunload>
 	<onunload>ClearProperty(closeosd,home)</onunload>
+    <onload>SetProperty(previoushub,home,home)</onload>
     <onload>ClearProperty(focushub,home)</onload>
 	<onload>ClearProperty(globalsearch,home)</onload>
+    <onload>ClearProperty(librarynode,home)</onload>
 	<onload condition="!Skin.HasSetting(skin.init)">AlarmClock(Skin.Initialization,ReplaceWindow(startup),00:01,silent)</onload>
 	<controls>
 		<include>GlobalBackground</include>
