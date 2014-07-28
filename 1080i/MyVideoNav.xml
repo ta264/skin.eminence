@@ -59,29 +59,6 @@
                     <description>View</description>
                     <include>DefNavMenuButton</include>
                 </control>
-
-                <control type="button" id="3">
-                    <description>Sort</description>
-                    <include>DefNavMenuButton</include>
-                </control>
-                
-                <control type="togglebutton" id="4">
-                    <include>DefNavMenuButton</include>
-                    <alttexturefocus>-</alttexturefocus>
-                    <alttexturenofocus>-</alttexturenofocus>
-                    <label>584</label>
-                    <altlabel>585</altlabel>
-                    <usealttexture>Container.SortDirection(Ascending)</usealttexture>
-                </control>
-                
-                <control type="togglebutton" id="14">
-                    <include>DefNavMenuButton</include>
-                    <label>20367</label>
-                    <altlabel>✓  $LOCALIZE[20367]</altlabel>
-                    <usealttexture>System.Setting(hidewatched)</usealttexture>
-                    <alttexturefocus>-</alttexturefocus>
-                    <alttexturenofocus>-</alttexturenofocus>
-                </control>
                 
                 <!-- EXTRA INFO OPTIONS -->
                 <control type="togglebutton" id="9003">
@@ -158,6 +135,31 @@
                     <alttexturefocus>-</alttexturefocus>
                     <alttexturenofocus>-</alttexturenofocus>
                 </control>
+      
+                <control type="button" id="3">
+                    <description>Sort</description>
+                    <include>DefNavMenuButton</include>
+                </control>
+                
+                <control type="togglebutton" id="4">
+                    <include>DefNavMenuButton</include>
+                    <alttexturefocus>-</alttexturefocus>
+                    <alttexturenofocus>-</alttexturenofocus>
+                    <label>584</label>
+                    <altlabel>585</altlabel>
+                    <usealttexture>Container.SortDirection(Ascending)</usealttexture>
+                </control>
+                
+                <control type="togglebutton" id="14">
+                    <include>DefNavMenuButton</include>
+                    <label>20367</label>
+                    <altlabel>✓  $LOCALIZE[20367]</altlabel>
+                    <usealttexture>System.Setting(hidewatched)</usealttexture>
+                    <alttexturefocus>-</alttexturefocus>
+                    <alttexturenofocus>-</alttexturenofocus>
+                </control>
+                
+                
                 
                 <control type="button" id="21">
                     <description>Activate Filter</description>
