@@ -1,9 +1,21 @@
+[B]0.9.43[/B]
+Down widget now on-screen rather than separate window
+Flat selection boxes
+Cyan theme now default (grey as separate)
+
+[B]0.9.42[/B]
+Fix Kaitoast
+Added Kaitoast icons for warning twitch etc. (thanks to StevenThuriot)
+Fix dialogselect background
+Fix dialogyesno spacing of lines
+
 [B]0.9.41[/B]
 Altered banner list view to align to left and right sides
 Added tv banners to big list view
 Added ability to add favourites to custom hub items
 Restored infolist
 Added option to set a static background color
+Fixed Kaitoast icon location
 
 [B]0.9.40[/B]
 Fix music on-screen track listing item 12 not having new line
