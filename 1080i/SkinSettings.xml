@@ -50,9 +50,8 @@
             <include>DialogVisibility</include>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
-            <include>DefSettingsSeparator</include>
             <visible>!Window.IsVisible(3065)</visible>
- 
+            <include>DefSettingsLines</include>
             <control type="grouplist" id="3">
                 <description>Control Area</description>
                 <onright>5</onright>
@@ -68,14 +67,18 @@
                     <align>left</align>
                     <textcolor>Disabled</textcolor>
                     <usealttexture>ControlGroup(3).HasFocus(37)</usealttexture>
-                    <alttexturenofocus colordiffuse="PosterBorder-NF" border="5">common/border-inner.png</alttexturenofocus>
+                    <altlabel>[COLOR=Selected]$LOCALIZE[31208][/COLOR]</altlabel>
+                    <alttexturefocus border="12">common/border-inner-highlight.png</alttexturefocus>
+                    <alttexturenofocus border="12">common/border-inner-highlight.png</alttexturenofocus>
                 </control>
                 <control type="togglebutton" id="32" description="Background">
                     <label>31202</label>
                     <align>left</align>
                     <textcolor>Disabled</textcolor>
                     <usealttexture>ControlGroup(3).HasFocus(32)</usealttexture>
-                    <alttexturenofocus colordiffuse="PosterBorder-NF" border="5">common/border-inner.png</alttexturenofocus>
+                    <altlabel>[COLOR=Selected]$LOCALIZE[31202][/COLOR]</altlabel>
+                    <alttexturefocus border="12">common/border-inner-highlight.png</alttexturefocus>
+                    <alttexturenofocus border="12">common/border-inner-highlight.png</alttexturenofocus>
                 </control>
                 
                 <control type="togglebutton" id="38" description="Fanart">
@@ -83,35 +86,45 @@
                     <align>left</align>
                     <textcolor>Disabled</textcolor>
                     <usealttexture>ControlGroup(3).HasFocus(38)</usealttexture>
-                    <alttexturenofocus colordiffuse="PosterBorder-NF" border="5">common/border-inner.png</alttexturenofocus>
+                    <altlabel>[COLOR=Selected]$LOCALIZE[20445][/COLOR]</altlabel>
+                    <alttexturefocus border="12">common/border-inner-highlight.png</alttexturefocus>
+                    <alttexturenofocus border="12">common/border-inner-highlight.png</alttexturenofocus>
                 </control>
                 <control type="togglebutton" id="33" description="Movies Hub">
                     <label>31179</label>
                     <align>left</align>
                     <textcolor>Disabled</textcolor>
                     <usealttexture>ControlGroup(3).HasFocus(33)</usealttexture>
-                    <alttexturenofocus colordiffuse="PosterBorder-NF" border="5">common/border-inner.png</alttexturenofocus>
+                    <altlabel>[COLOR=Selected]$LOCALIZE[31179][/COLOR]</altlabel>
+                    <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                    <alttexturenofocus border="12">common/border-inner-highlight.png</alttexturenofocus>
                 </control>
                 <control type="togglebutton" id="35" description="TV Hub">
                     <label>31180</label>
                     <align>left</align>
                     <textcolor>Disabled</textcolor>
                     <usealttexture>ControlGroup(3).HasFocus(35)</usealttexture>
-                    <alttexturenofocus colordiffuse="PosterBorder-NF" border="5">common/border-inner.png</alttexturenofocus>
+                    <altlabel>[COLOR=Selected]$LOCALIZE[31180][/COLOR]</altlabel>
+                    <alttexturefocus border="12">common/border-inner-highlight.png</alttexturefocus>
+                    <alttexturenofocus border="12">common/border-inner-highlight.png</alttexturenofocus>
                 </control>
                 <control type="togglebutton" id="34" description="OSD">
                     <label>478</label>
                     <align>left</align>
                     <textcolor>Disabled</textcolor>
                     <usealttexture>ControlGroup(3).HasFocus(34)</usealttexture>
-                    <alttexturenofocus colordiffuse="PosterBorder-NF" border="5">common/border-inner.png</alttexturenofocus>
+                    <altlabel>[COLOR=Selected]$LOCALIZE[478][/COLOR]</altlabel>
+                    <alttexturefocus border="12">common/border-inner-highlight.png</alttexturefocus>
+                    <alttexturenofocus border="12">common/border-inner-highlight.png</alttexturenofocus>
                 </control>
                 <control type="togglebutton" id="36" description="Add-ons">
                     <label>24001</label>
                     <align>left</align>
                     <textcolor>Disabled</textcolor>
                     <usealttexture>ControlGroup(3).HasFocus(36)</usealttexture>
-                    <alttexturenofocus colordiffuse="PosterBorder-NF" border="5">common/border-inner.png</alttexturenofocus>
+                    <altlabel>[COLOR=Selected]$LOCALIZE[24001][/COLOR]</altlabel>
+                    <alttexturefocus border="12">common/border-inner-highlight.png</alttexturefocus>
+                    <alttexturenofocus border="12">common/border-inner-highlight.png</alttexturenofocus>
                 </control>
             </control>
             
@@ -389,20 +402,30 @@
                     <visible>ControlGroup(3).HasFocus(33)</visible>
                     <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
                 </control>
-                <!--
-                <control type="radiobutton" id="306">
-                    <label>31199</label>
+                
+                <control type="button" id="306">
+                    <label>$LOCALIZE[31186] 4</label>
+                    <label2>$INFO[Skin.String(moviehub.4.Label)]</label2>
+                    <onclick>SetProperty(item,moviehub.4,3067)</onclick>
+                    <onclick>ActivateWindow(3067)</onclick>
                     <width>1063</width>
-                    <radioposx>984</radioposx>
                     <align>left</align>
                     <font>Font-ListInfo</font>
-                    <onclick>Skin.ToggleSetting(home.disablehubs)</onclick>
-                    <selected>Skin.HasSetting(home.disablehubs)</selected>
                     <visible>ControlGroup(3).HasFocus(33)</visible>
                     <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
                 </control>
-                -->
-                
+               
+                <control type="button" id="307">
+                    <label>$LOCALIZE[31186] 5</label>
+                    <label2>$INFO[Skin.String(moviehub.5.Label)]</label2>
+                    <onclick>SetProperty(item,moviehub.5,3067)</onclick>
+                    <onclick>ActivateWindow(3067)</onclick>
+                    <width>1063</width>
+                    <align>left</align>
+                    <font>Font-ListInfo</font>
+                    <visible>ControlGroup(3).HasFocus(33)</visible>
+                    <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                </control>
                 
                 <!---------------->
                 <!-- TVshow Hub -->
@@ -470,20 +493,29 @@
                     <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
                 </control>
                 
-                <!--
-                <control type="radiobutton" id="506">
-                    <label>31199</label>
+                <control type="button" id="506">
+                    <label>$LOCALIZE[31186] 4</label>
+                    <label2>$INFO[Skin.String(tvshowhub.4.Label)]</label2>
+                    <onclick>SetProperty(item,tvshowhub.4,3067)</onclick>
+                    <onclick>ActivateWindow(3067)</onclick>
                     <width>1063</width>
-                    <radioposx>984</radioposx>
                     <align>left</align>
                     <font>Font-ListInfo</font>
-                    <onclick>Skin.ToggleSetting(home.disablehubs)</onclick>
-                    <selected>Skin.HasSetting(home.disablehubs)</selected>
                     <visible>ControlGroup(3).HasFocus(35)</visible>
                     <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
                 </control>
-                -->
                 
+                <control type="button" id="507">
+                    <label>$LOCALIZE[31186] 5</label>
+                    <label2>$INFO[Skin.String(tvshowhub.5.Label)]</label2>
+                    <onclick>SetProperty(item,tvshowhub.5,3067)</onclick>
+                    <onclick>ActivateWindow(3067)</onclick>
+                    <width>1063</width>
+                    <align>left</align>
+                    <font>Font-ListInfo</font>
+                    <visible>ControlGroup(3).HasFocus(35)</visible>
+                    <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                </control>
                 <!------------>
                 <!-- FANART -->
                 <!------------>
@@ -497,6 +529,17 @@
                     
                     <onclick>Skin.ToggleSetting(disable.fanart)</onclick>
                     <selected>!Skin.HasSetting(disable.fanart)</selected>
+                    <visible>ControlGroup(3).HasFocus(38)</visible>
+                    <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                </control>
+                <control type="radiobutton" id="827">
+                    <label>31230</label>
+                    <width>1063</width>
+                    <radioposx>984</radioposx>
+                    <align>left</align>
+                    <font>Font-ListInfo</font>
+                    <onclick>Skin.ToggleSetting(Fanart.Animate)</onclick>
+                    <selected>Skin.HasSetting(Fanart.Animate)</selected>
                     <visible>ControlGroup(3).HasFocus(38)</visible>
                     <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
                 </control>

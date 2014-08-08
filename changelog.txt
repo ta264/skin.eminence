@@ -1,9 +1,24 @@
+[B]0.9.45[/B]
+Altered settings and various selection dialog styles
+Banner list no longer fixedlist and highlight in main colour full width
+Info list highlight main color full width
+
+[B]0.9.44[/B]
+Increased number of library node items on right side of hub to 7 (from 5)
+Increased number of custom hub items to 5 (from 3)
+Animate fanart
+Silhouette only when option enabled
+Fixed some strings
+Fixed hub slide over for context menu
+Fixed progress bar covering captchas
+
 [B]0.9.43[/B]
 Down widget now on-screen rather than separate window
 Flat selection boxes
 Cyan theme now default (grey as separate)
 Mixed widget default widget
 Match theme color for home tiles as default
+Settings background boxes
 
 [B]0.9.42[/B]
 Fix Kaitoast
