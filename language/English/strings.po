@@ -527,3 +527,19 @@ msgstr ""
 msgctxt "#31230"
 msgid "Animate fanart"
 msgstr ""
+
+msgctxt "#31231"
+msgid "Edit Playlist"
+msgstr ""
+
+msgctxt "#31232"
+msgid "Rule"
+msgstr ""
+
+msgctxt "#31233"
+msgid "Enter rule..."
+msgstr ""
+
+msgctxt "#31234"
+msgid "PVR goes to hub from home screen"
+msgstr ""
