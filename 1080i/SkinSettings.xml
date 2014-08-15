@@ -25,21 +25,15 @@
         </control>
    
         <control type="group">
-		    <posx>253</posx>
+		    <posx>horzpad</posx>
 		    <posy>70</posy>
             <visible>!Window.IsVisible(3065)</visible>
 		    <include>DialogVisibility</include>
 		    <animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(3067)">Conditional</animation>
 		    <include>Animation.SlideOpen.Left</include>
 		    <control type="label" id="2" description="Info Label">
-                <posx>1514</posx>
-                <posy>210</posy>
-                <aligny>top</aligny>
-                <width>690</width>
-                <font>Font-ViewCategory</font>
+                <include>DefSideLabelCoords</include>
                 <label>$LOCALIZE[20077]</label>
-                <animation effect="rotate" start="0" end="270" condition="true" center="1514,210">Conditional</animation>
-                <animation effect="fade" end="25" condition="true">Conditional</animation>
             </control>
         </control>
 
@@ -117,12 +111,12 @@
                     <alttexturefocus border="12">common/border-inner-highlight.png</alttexturefocus>
                     <alttexturenofocus border="12">common/border-inner-highlight.png</alttexturenofocus>
                 </control>
-                <control type="togglebutton" id="36" description="Add-ons">
-                    <label>24001</label>
+                <control type="togglebutton" id="36" description="Extras">
+                    <label>31235</label>
                     <align>left</align>
                     <textcolor>Disabled</textcolor>
                     <usealttexture>ControlGroup(3).HasFocus(36)</usealttexture>
-                    <altlabel>[COLOR=Selected]$LOCALIZE[24001][/COLOR]</altlabel>
+                    <altlabel>[COLOR=Selected]$LOCALIZE[31235][/COLOR]</altlabel>
                     <alttexturefocus border="12">common/border-inner-highlight.png</alttexturefocus>
                     <alttexturenofocus border="12">common/border-inner-highlight.png</alttexturenofocus>
                 </control>
@@ -604,6 +598,7 @@
                     <visible>ControlGroup(3).HasFocus(38)</visible>
                     <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
                 </control>
+                
                 <!--<control type="button" id="634">
                     <label>31229</label>
                     <width>1063</width>
@@ -700,6 +695,19 @@
                 <!------------>
                 <!-- ADDONS -->
                 <!------------>
+                
+                <control type="button" id="634">
+                    <label>31236</label>
+                    <width>1063</width>
+                    <align>left</align>
+                    <font>Font-ListInfo</font>
+                    <label2>$INFO[Skin.String(home.headertext)]</label2>
+                    <onclick condition="IsEmpty(Skin.String(home.headertext))">Skin.SetString(home.headertext)</onclick>
+                    <onclick condition="!IsEmpty(Skin.String(home.headertext))">Skin.Reset(home.headertext)</onclick>
+                    <visible>ControlGroup(3).HasFocus(36)</visible>
+                    <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                </control>
+                
                 <control type="radiobutton" id="601">
                     <label>31144</label>
                     <width>1063</width>
@@ -769,7 +777,24 @@
                     <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
                 </control>
                 
-                 <control type="radiobutton" id="631">
+                 
+                
+                
+                
+                <control type="button" id="632">
+                    <label>31137</label>
+                    <width>1063</width>
+                    <radioposx>984</radioposx>
+                    <align>left</align>
+                    <font>Font-ListInfo</font>
+                    <onclick>Skin.ToggleSetting(skin.init)</onclick>
+                    <onclick>ReplaceWindow(startup)</onclick>
+                    <selected>!Skin.HasSetting(skin.init)</selected>
+                    <visible>ControlGroup(3).HasFocus(36)</visible>
+                    <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                </control>
+                
+                <!--<control type="radiobutton" id="631">
                     <label>654</label>
                     <width>1063</width>
                     <radioposx>984</radioposx>
@@ -779,20 +804,7 @@
                     <selected>!Skin.HasSetting(HideDebugInfo)</selected>
                     <visible>ControlGroup(3).HasFocus(36)</visible>
                     <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
-                </control>
-                <control type="radiobutton" id="632">
-                    <label>31137</label>
-                    <width>1063</width>
-                    <radioposx>984</radioposx>
-                    <align>left</align>
-                    <font>Font-ListInfo</font>
-                    <onclick>Skin.ToggleSetting(skin.init)</onclick>
-                    <selected>!Skin.HasSetting(skin.init)</selected>
-                    <visible>ControlGroup(3).HasFocus(36)</visible>
-                    <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
-                </control>
-                
-                
+                </control>-->
                 
             </control>
         </control>
