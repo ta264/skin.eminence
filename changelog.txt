@@ -1,3 +1,11 @@
+[B]0.9.47[/B]
+Separate PVR hub window - ActivateWindow(3204)
+Added "Advanced" skin settings (debug + reinit)
+Fix big list alignment issue for focused item
+Updated timers dialog
+Added search dialog PVR
+Woppie's fix for PVR Channel osd
+
 [B]0.9.46[/B]
 PVR goes to hub from home screen - reset home tile to ActivateWindow(MyPVR)
 Music playlist editor
@@ -6,6 +14,8 @@ Show next aired ticker for all shows in tv hub
 Fix side label coords for dialog select plus move slightly closer
 Fix addon info launch button to close info and addon browser
 Update Next Aired for day name version
+Fix overlapping labels in addon setting and file browser
+NextAired RSS now shows next air date as well as day and time
 
 [B]0.9.45[/B]
 Altered settings and various selection dialog styles

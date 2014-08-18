@@ -11,7 +11,11 @@
             <include>Animation.SlideOpen.Left</include>
             <control type="label" description="Info Label">
                 <include>DefSideLabelCoords</include>
-                <label>$INFO[ListItem.Label]</label>
+                <label>1045</label>
+                <visible>!Window.IsVisible(SliderDialog)</visible>
+                <visible>!Window.IsVisible(FileBrowser)</visible>
+                <visible>!Window.IsVisible(LockSettings.xml)</visible>
+                <visible>!Window.IsVisible(DialogSelect.xml)</visible>
             </control>
             <control type="label" id="20">
                 <visible>false</visible>
@@ -54,7 +58,7 @@
                 <onleft>9</onleft>
                 <onright>10</onright>
                 <onup>-</onup>
-                <ondown>-</ondown>
+                <ondown>10</ondown>
             </control>
 
             <control type="button" id="3">
