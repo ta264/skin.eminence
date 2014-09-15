@@ -34,8 +34,10 @@
             <posx>horzpad</posx>
             <posy>70</posy>
             <include>Animation.SlideOpen.Left</include>
-            <control type="label" id="1" description="Info Label">
+            <control type="label" id="1"><visible>false</visible></control>
+            <control type="label" description="Info Label">
                 <include>DefSideLabelCoords</include>
+                <label>$VAR[DialogSelectHeader]</label>
             </control>
         </control>
 
@@ -47,7 +49,7 @@
             <control type="group">
                 <include>DefSettingsLeftGroup</include>
                 <control type="image">
-                    <texture border="12">common/border-inner-highlight.png</texture>
+                    <texture border="12" colordiffuse="PosterHighlight">common/white.png</texture>
                     <height>66</height>
                     <include>DefSettingsLeftGroupWidth</include>
                 </control>
@@ -56,7 +58,7 @@
                     <description>Header</description>
                     <width>350</width>
                     <align>left</align>
-                    <label>$INFO[Control.GetLabel(1)]</label>
+                    <label>$VAR[DialogSelectHeader]</label>
                     <textcolor>Selected</textcolor>
                 </control>
                 <control type="image">
@@ -70,6 +72,7 @@
             </control>
         
             <control type="list" id="3">
+                <height>552</height>
                 <include>DefSettingsRightGroup</include>
                 <onleft>60</onleft>
                 <onright>5</onright>
@@ -84,7 +87,7 @@
                         <height>66</height>
                         <info>ListItem.Label</info>
                         <textcolor>PanelFG-NF</textcolor>
-                        <selectedcolor>Highlight-NF</selectedcolor>
+                        <selectedcolor>Keyboard</selectedcolor>
                     </control>
                     <control type="label">
                         <posx>990</posx>
@@ -94,7 +97,7 @@
                         <info>ListItem.Label2</info>
                         <font>Font-ListInfo</font>
                         <textcolor>PanelFG-NF</textcolor>
-                        <selectedcolor>Highlight-NF</selectedcolor>
+                        <selectedcolor>Keyboard</selectedcolor>
                     </control>
                 </itemlayout>
                 <focusedlayout height="69" width="1438">
@@ -103,7 +106,7 @@
                         <control type="image">
                             <include>DefSettingsRightGroupWidth</include>
                             <height>66</height>
-                            <texture border="12">common/border-inner-highlight.png</texture>
+                            <texture border="12" colordiffuse="PosterHighlight">common/white.png</texture>
                         </control>
                         <control type="label">
                             <posx>30</posx>
@@ -111,7 +114,7 @@
                             <height>66</height>
                             <info>ListItem.Label</info>
                             <textcolor>PanelFG</textcolor>
-                            <selectedcolor>Highlight-NF</selectedcolor>
+                            <selectedcolor>Keyboard</selectedcolor>
                         </control>
                         <control type="label">
                             <posx>990</posx>
@@ -121,7 +124,7 @@
                             <info>ListItem.Label2</info>
                             <font>Font-ListInfo</font>
                             <textcolor>PanelFG</textcolor>
-                            <selectedcolor>Highlight-NF</selectedcolor>
+                            <selectedcolor>Keyboard</selectedcolor>
                         </control>
                     </control>
                     <control type="group">
@@ -132,7 +135,7 @@
                             <height>66</height>
                             <info>ListItem.Label</info>
                             <textcolor>PanelFG</textcolor>
-                            <selectedcolor>Highlight-NF</selectedcolor>
+                            <selectedcolor>Keyboard</selectedcolor>
                         </control>
                         <control type="label">
                             <posx>990</posx>
@@ -142,7 +145,7 @@
                             <info>ListItem.Label2</info>
                             <font>Font-ListInfo</font>
                             <textcolor>PanelFG</textcolor>
-                            <selectedcolor>Highlight-NF</selectedcolor>
+                            <selectedcolor>Keyboard</selectedcolor>
                         </control>
                     </control>
                 </focusedlayout>
@@ -152,6 +155,7 @@
             
             <control type="list" id="6">
                 <height>552</height>
+                
                 <include>DefSettingsRightGroup</include>
                 
                 
@@ -178,7 +182,7 @@
                         <textcolor>PanelFG-NF</textcolor>
                     </control>
                     <control type="label">
-                        <posx>990</posx>
+                        <posx>1020</posx>
                         <width>600</width>
                         <height>135</height>
                         <align>right</align>
@@ -193,7 +197,7 @@
                         <control type="image">
                             <width>1053</width>
                             <height>135</height>
-                            <texture border="12">common/border-inner-highlight.png</texture>
+                            <texture border="12" colordiffuse="PosterHighlight">common/white.png</texture>
                         </control>
                         <control type="label">
                             <posx>160</posx>
@@ -204,7 +208,7 @@
                             <textcolor>PanelFG</textcolor>
                         </control>
                         <control type="label">
-                            <posx>990</posx>
+                            <posx>1020</posx>
                             <width>600</width>
                             <height>135</height>
                             <align>right</align>
@@ -224,7 +228,7 @@
                             <textcolor>PanelFG</textcolor>
                         </control>
                         <control type="label">
-                            <posx>990</posx>
+                            <posx>1020</posx>
                             <width>600</width>
                             <height>135</height>
                             <align>right</align>
@@ -254,7 +258,7 @@
                 <posx>235</posx>
                 <width>globalw</width>
                 <posy>685</posy>
-                <height>105</height>
+                <height>100</height>
                 <align>justify</align>
                 <font>Font-ListInfo-Small</font>
                 <textcolor>Disabled</textcolor>
@@ -271,7 +275,7 @@
                 <onright>3</onright>
                 <onleft>3</onleft>
                 
-                <texturefocus>-</texturefocus>
+                <texturefocus>noop</texturefocus>
                 <focusedcolor>Highlight</focusedcolor>
                 <include>Animation.FadeIn</include>
                 <include>Animation.FadeOut</include>

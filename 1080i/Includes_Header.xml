@@ -60,7 +60,7 @@
         <value condition="Window.IsVisible(MyVideoNav.xml) + substring(Container.FolderPath,movies)">special://skin/extras/icons/film.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,tvshows) | substring(Container.FolderPath,episodes)]">special://skin/extras/icons/tv.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml)">special://skin/extras/icons/video-addons.png</value>
-        <value condition="Window.IsVisible(MyPVR.xml)">special://skin/extras/icons/livetv.png</value>
+        <value condition="Window.IsVisible(MyPVR.xml) | Window.IsVisible(3204)">special://skin/extras/icons/livetv.png</value>
         <value condition="Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">special://skin/extras/icons/songs.png</value>
         <value condition="Window.IsVisible(MyPics.xml)">special://skin/extras/icons/pictures.png</value>
         <value condition="Window.IsVisible(MyPrograms.xml) | Window.IsVisible(AddonBrowser.xml)">special://skin/extras/icons/addons.png</value>
@@ -85,7 +85,7 @@
         <value condition="Window.IsVisible(MyVideoNav.xml) + substring(Container.FolderPath,movies)">$LOCALIZE[20342]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,tvshows) | substring(Container.FolderPath,episodes)]">$LOCALIZE[20343]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml)">$LOCALIZE[3]</value>
-        <value condition="Window.IsVisible(MyPVR.xml)">$LOCALIZE[31104]</value>
+        <value condition="Window.IsVisible(MyPVR.xml) | Window.IsVisible(3204)">$LOCALIZE[31104]</value>
         <value condition="Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">$LOCALIZE[2]</value>
         <value condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml)">$LOCALIZE[5]</value>
         <value condition="Window.IsVisible(weather)">$LOCALIZE[8]</value>
@@ -98,17 +98,23 @@
     </variable>
     
     <variable name="HeaderTileTexture">
-        <value condition="!Window.IsVisible(Home) + !Window.IsVisible(DialogSeekBar.xml)">home/head-tile-glass.png</value>
+        <!--<value condition="Skin.HasSetting(header.flatdark)">home/head-tile.png</value>-->
+        <!--<value condition="!Window.IsVisible(Home) + !Window.IsVisible(DialogSeekBar.xml)">home/head-tile-glass.png</value>-->
         <value>home/head-tile.png</value>
     </variable>
     
     <variable name="HeaderColorBG">
+        <value condition="Skin.HasSetting(header.matchhighlight)">PosterHighlight</value>
+        <value condition="Skin.HasSetting(header.matchhighlight) + [Window.IsActive(script-globalsearch-infodialog.xml) | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(DialogFavourites.xml) | [!Window.IsVisible(Home) + !Window.IsVisible(DialogSeekBar.xml)]]">PosterHighlight</value>
         <value condition="Window.IsActive(script-globalsearch-infodialog.xml) | Window.IsActive(script-globalsearch-main.xml) | Window.IsActive(DialogFavourites.xml) | [!Window.IsVisible(Home) + !Window.IsVisible(DialogSeekBar.xml)]">PosterBorder</value>
         <value condition="Window.IsActive(home) | Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(3101) | Skin.HasSetting(purplefade) | !IsEmpty(Skin.String(global.background))">TopBarDark</value>
+        <value condition="Skin.HasSetting(header.matchhighlight)">PosterHighlight</value>
         <value>PosterBorder</value>
+        
     </variable>
     
     <variable name="HeaderColorFG">
+        <value condition="Skin.HasSetting(header.matchhighlight)">Selected</value>
         <value condition="Window.IsActive(home) | Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(3101) | Skin.HasSetting(purplefade) | !IsEmpty(Skin.String(global.background))">TopBarDarkIcon</value>
         <value>TopBarIcon</value>
     </variable>
@@ -226,12 +232,12 @@
         <control type="grouplist">
             <posx>245</posx>
             <posy>115</posy>
-            <width>1200</width>
+            <width>1100</width>
             <orientation>horizontal</orientation>
             <itemgap>0</itemgap>
             <visible>!IsEmpty(Player.Duration) + Player.HasVideo</visible>
             <control type="label">
-                <width max="550">auto</width>
+                <width max="450">auto</width>
                 <font>Font-Sublabel</font>
                 <aligny>top</aligny>
                 <textcolor>$VAR[TopBarSubLabel]</textcolor>
@@ -257,7 +263,7 @@
         <control type="grouplist">
             <posx>245</posx>
             <posy>115</posy>
-            <width>1200</width>
+            <width>1100</width>
             <orientation>horizontal</orientation>
             <itemgap>0</itemgap>
             <visible>!IsEmpty(Player.Duration) + !Player.HasVideo</visible>
@@ -280,11 +286,11 @@
         <control type="grouplist">
             <posx>245</posx>
             <posy>115</posy>
-            <width>1200</width>
+            <width>1100</width>
             <orientation>horizontal</orientation>
             <visible>IsEmpty(Player.Duration)</visible>
             <control type="label">
-                <width>1200</width>
+                <width>1100</width>
                 <font>Font-Sublabel</font>
                 <aligny>top</aligny>
                 <textcolor>$VAR[TopBarSubLabel]</textcolor>

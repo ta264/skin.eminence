@@ -1,5 +1,100 @@
+[B]1.0.0[/B]
+fix livetv record not focusing onright
+
+[B]0.9.59[/B]
+DialogSongInfo functional
+fix Network Add
+big list play fix in song files
+button menu localise reload skin (oops!)
+add background image skin setting replacing silhouette
+ - now can set both a fallback fanart and an overlay background
+make script.favourites a dep
+
+[B]0.9.58[/B]
+remove Defaults.xml
+add DialogSongInfo.xml and VideoOverlay.xml
+fix ampersand
+fix unmatch paras
+fix undefined ids
+tidy some unused includes
+
+[B]0.9.57[/B]
+fix osd button labels showing
+fix onleft for pvr to always goto hub
+
+[B]0.9.56[/B]
+REPOSITORY INCLUSION FIXES
+xbmc.gui bumped to 5.0.1
+lang="en" in description and summary 
+remove TODO
+change case of Defaults.xml to defaults.xml
+remove executable bit on font files
+fixes to dialogcontentsettings
+fixes to weather font colours
+fixes to list info font colours
+fixes to pvr lists font colours
+fixes to file manager
+replace "-" by "noop"
+remove <label>-</label> references
+resize _screenshots to 1280x720
+replace & with &amp;
+fix missing space before colordiffuse tags
+remove additional "-" in comment lines
+replace tabs with spaces
+remove BOMs
+change LICENSE files EOLs from CR/LF (win) to LF (unix)
+
+[B]0.9.55[/B]
+Preparation for repository inclusion
+Removal of script into own addon
+script.eminencefunctions now referenced rather than directly
+Change to flat theme as default
+Old theme become Glass
+script.eminencefunctions now a dependency
+Clean up of fanart fade settings
+
+[B]0.9.54[/B]
+Skin Settings descriptions
+
+[B]0.9.53[/B]
+Media Info view for Movies/TvShows
+Fanart fade amount option
+
+[B]0.9.52[/B]
+Added trailer button to context menu
+Added update library button to nav menu
+Kiosk mode
+Fixes to side menu for playlist
+Match header tile colour to theme colour in skin extras
+3d Mode selection in osd
+
+[B]0.9.51[/B]
+Added ability to customise global widget type
+Fix silhouette not showing
+Fix widget window 3101
+Widget carousel as own window option
+Fixes to smartplaylist editor and filter
+Add record button
+Update to new version of Roboto font
+Fix alignment issues with radiobuttons
+Fix various radiobutton issues in side menus
+
+[B]0.9.50[/B]
+Streamline themes to be default/flat
+Colour schemes now go with either theme
+Removed sidebar texture in place of flat selection
+Added panel behind sidemenu and list
+Scrolling dialogs text
+fix id500 show info bug
+fix return home onleft bug
+fix epg pvr highlight
+
 [B]0.9.49[/B]
 Flat Themes + Tweaks + Colours
+Wall to id500 for thumb view defaults in Youtube etc
+Fix PVR hub icon issue
+Fix Music Hub not returning
+Music vis on home
 
 [B]0.9.48[/B]
 Invert widget access

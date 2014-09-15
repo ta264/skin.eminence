@@ -5,10 +5,6 @@
         <value condition="Container.Content(artists)">$INFO[ListItem.DBID,musicdb://artists/,]</value>
         <value condition="Container.Content(albums)">$INFO[ListItem.DBID,musicdb://albums/,]</value>
     </variable>
-    
-    <include name="9500Focus">
-        <defaultcontrol always="true">9500</defaultcontrol>
-    </include>
   
     <include name="50Focus">
         <defaultcontrol always="true">50</defaultcontrol>
@@ -272,20 +268,6 @@
         </control>
 
     </include>
-    
-    
-    <include name="DefSettingsSeparator">
-
-        <control type="image">
-            <posx>618</posx>
-            <posy>120</posy>
-            <height>549</height>
-            <width>8</width>
-            <texture colordiffuse="PosterBorder">common/white.png</texture>
-            <include>Animation.SlideOpen.Left</include>
-            <animation effect="fade" start="100" end="65" condition="true">Conditional</animation>
-        </control>
-    </include>
         
     <include name="DefOnBack">
         <onback>SetProperty(librarynode,$INFO[Container.FolderPath],home)</onback>
@@ -316,10 +298,8 @@
     </variable>
     
     <include name="DefScrollBarMove">
-        <onleft>SetProperty(librarynode,$INFO[Container.FolderPath],home)</onleft>
-        <onleft>ActivateWindow($INFO[Window(home).Property(previoushub)])</onleft>
-        <!--<onleft condition="!IsEmpty(Container(9500).ListItem.Label) + [[Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,tvshows) | substring(Container.FolderPath,episodes) | substring(Container.FolderPath,movies)]] | Window.IsVisible(MyMusicNav.xml)]">SetProperty(focushub,1,home)</onleft>
-        <onleft condition="!IsEmpty(Container(9500).ListItem.Label) + [[Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,tvshows) | substring(Container.FolderPath,episodes) | substring(Container.FolderPath,movies)]] | Window.IsVisible(MyMusicNav.xml)]">SetFocus(9500)</onleft>-->
+        <onleft condition="!stringcompare(Window(home).Property(previoushub),home)">SetProperty(librarynode,$INFO[Container.FolderPath],home)</onleft>
+        <onleft condition="!stringcompare(Window(home).Property(previoushub),home)">ActivateWindow($INFO[Window(home).Property(previoushub)])</onleft>
         <onright>50</onright>
     </include>
     
@@ -344,8 +324,7 @@
             <width>440</width>
             <height>690</height>
             <colordiffuse>PosterBorder</colordiffuse>
-            <texture border="12" flipx="false">common/white.png</texture>
-            <visible>substring(Skin.CurrentTheme,Flat,Left)</visible>
+            <texture border="12" flipx="false">common/border-inner.png</texture>
         </control>
     </include>
     
@@ -355,6 +334,14 @@
             <include>DefSidePanel</include>
             <control type="grouplist" id="996">
                 <include>DefMyNavBarGroupList</include>
+                <control type="button" id="11001">
+                    <description>Trailer</description>
+                    <label>20410</label>
+                    <onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+                    <include>DefNavMenuButton</include>
+                    <visible>!IsEmpty(ListItem.Trailer)</visible>
+                    <ondown>1000</ondown>
+                </control>
                 <control type="button" id="1000">
                     <description>Buttons</description>
                     <include>DefNavMenuButton</include>
@@ -414,13 +401,6 @@
                     <height>bigposterh</height>
                     <visible>Player.HasAudio</visible>
                 </control>
-                <control type="image">
-                    <posx>globalpad</posx>
-                    <posy>globalpad</posy>
-                    <width>lovefilmw</width>
-                    <height>bigposterh</height>
-                    <texture border="2" colordiffuse="BorderColor">common/border.png</texture>
-                </control>
             </control>
         </control>
     </include>
@@ -440,6 +420,7 @@
             <visible>!Container(51).OnScrollNext + !Container(51).OnScrollPrevious</visible>
             <visible>!ControlGroup(9000).HasFocus()</visible>
             <visible>!Window.IsActive(DialogContextMenu.xml)</visible>
+            <visible>!Window.IsActive(DialogSongInfo.xml)</visible>
         </control>
     </include>
     
@@ -454,7 +435,7 @@
             <animation effect="slide" end="-1920" start="0" delay="0" time="200" condition="Window.IsActive(musicinformation)">Conditional</animation>
             <animation effect="slide" end="-1920" start="0" delay="0" time="200" condition="Window.IsActive(addoninformation)">Conditional</animation>
             <animation effect="fade" end="0" start="100" delay="0" time="200" condition="Control.HasFocus(9001)">Conditional</animation>
-            <animation effect="slide" end="horznegpad" start="0" time="200" condition="ControlGroup(9000).HasFocus() | Window.IsActive(DialogContextMenu.xml)">Conditional</animation>
+            <animation effect="slide" end="horznegpad" start="0" time="200" condition="ControlGroup(9000).HasFocus() | Window.IsActive(DialogContextMenu.xml) | Window.IsActive(DialogSongInfo.xml)">Conditional</animation>
             <include>Animation.SlideOpen.Left</include>
             <include>Animation.FadeOut</include>
             <include>View_50_List</include>
@@ -464,28 +445,11 @@
             <include>View_54_Lovefilm</include>
             <include>View_55_Banner</include>            
             <include>View_56_BigList</include>
-            <include condition="Window.IsVisible(MyVideoNav.xml)">View_57_InfoList</include>
-            <include condition="Window.IsVisible(MyVideoNav.xml)">View_58_BannerList</include>
+            <include condition="Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyVideoPlaylist.xml)">View_57_InfoList</include>
+            <include condition="Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyVideoPlaylist.xml)">View_58_BannerList</include>
+            <include condition="Window.IsVisible(MyVideoNav.xml)">View_59_MediaInfo3</include>
         </control>
         <include>NextAiredRSS</include>
-
-    </include>
-    
-    <include name="DefMyNavViews.Right">
-        <control type="group">
-            <posy>70</posy>
-            <posx>horzpad</posx>
-            <include>DialogVisibility</include>
-            <visible allowhiddenfocus="true">![Control.HasFocus(9500) | Control.HasFocus(9501) | Control.HasFocus(9502) | ControlGroup(300).HasFocus()]</visible>
-            <animation effect="slide" end="-1920" start="0" delay="0" time="200" condition="Window.IsActive(movieinformation)">Conditional</animation>
-            <animation effect="slide" end="-1920" start="0" delay="0" time="200" condition="Window.IsActive(musicinformation)">Conditional</animation>
-            <animation effect="slide" end="-1920" start="0" delay="0" time="200" condition="Window.IsActive(addoninformation)">Conditional</animation>
-            <include>Animation.SlideOpen.Right</include>
-            <include>Animation.FadeOut</include>
-            <include>View_50_List</include>
-            <include>View_56_BigList</include>  
-            <animation effect="slide" end="horznegpad" start="0" time="200" condition="ControlGroup(9000).HasFocus() | Window.IsActive(DialogContextMenu.xml)">Conditional</animation>          
-        </control>
     </include>
     
     <include name="DefWatchedProgress">
@@ -496,17 +460,6 @@
             <height>48</height>
             <texture colordiffuse="PanelFG-NF">$INFO[ListItem.PercentPlayed,common/circle/,.png]</texture>
             <visible>!ListItem.IsPlaying + !IntegerGreaterThan(ListItem.PercentPlayed,99) + IntegerGreaterThan(ListItem.PercentPlayed,1)</visible>
-        </control>
-        <control type="label">
-            <posx>32</posx>
-            <posy>9</posy>
-            <width>48</width>
-            <height>48</height>
-            <align>center</align>
-            <aligny>center</aligny>
-            <font>Font-Button</font>
-            <label>$VAR[WatchedLabel]</label>
-            <visible>ListItem.IsPlaying | IntegerGreaterThan(ListItem.PercentPlayed,99) | !IntegerGreaterThan(ListItem.PercentPlayed,1)</visible>
         </control>
     </include>
     
@@ -528,8 +481,9 @@
         <width>440</width>
         <height>90</height>
         <align>left</align>
-        <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
-        <alttexturefocus border="12">common/border-inner-highlight.png</alttexturefocus>
+        <radioposx>370</radioposx>
+        <texturefocus border="12" colordiffuse="PosterHighlight">common/white.png</texturefocus>
+        <alttexturefocus border="12" colordiffuse="PosterHighlight">common/white.png</alttexturefocus>
     </include>
     
     <include name="DefMyNavBar">
@@ -539,22 +493,12 @@
             <width>440</width>
             <height>690</height>
             <colordiffuse>PosterBorder</colordiffuse>
-            <texture border="12" flipx="false">common/white.png</texture>
-            <animation condition="Container(50).OnNext" reversible="false" effect="slide" start="0,-33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
-            <animation condition="Container(50).OnPrevious" reversible="false" effect="slide" start="0,33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
-            <visible>substring(Skin.CurrentTheme,Flat,Left)</visible>
+            <texture border="12" flipx="false">common/border-inner.png</texture>
         </control>
 
         <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus()</visible>
         <include>Animation.SlideOpen.Left</include>
     </include>
-    
-    
-    
-    <!------------------>
-    <!-- Context Menu -->
-    <!------------------>
-    
     
     <include name="DefContextMenuBackground">
         <control type="group">
@@ -582,7 +526,7 @@
     <include name="DefContextMenuButton">
         <width>417</width>
         <height>142</height>
-        <texturefocus>-</texturefocus>
+        <texturefocus>noop</texturefocus>
         <textcolor>$VAR[HeaderColorFG]</textcolor>
         <focusedcolor>Highlight</focusedcolor>
         <textoffsetx>0</textoffsetx>
@@ -599,9 +543,6 @@
         <texturedownfocus colordiffuse="Highlight">buttons/spin-down.png</texturedownfocus>
     </include>
     
-    <!------------------->
-    <!-- Global Search -->
-    <!------------------->
     <include name="DefGlobalSearchListNF">
         <control type="image">
             <height>336</height>
@@ -663,8 +604,4 @@
             <label>$INFO[ListItem.Property(Year),,  •  ]$INFO[ListItem.Property(Rating)]</label>
         </control>
     </include>
-    
-    
-    
-    
 </includes>

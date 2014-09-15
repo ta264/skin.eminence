@@ -2,8 +2,8 @@
 <!-- Foundation -->
 <includes>
 
-	<include name="View_53_Wide">
-	
+    <include name="View_53_Wide">
+    
         <control type="group">
             <visible>Control.IsVisible(53)</visible>
             <include>Animation.ViewChange</include>     
@@ -13,6 +13,7 @@
                 <posy>listy</posy>
                 <width>1458</width>
                 <height>700</height>
+                <visible>!Window.IsVisible(MyVideoPlaylist.xml)</visible>
                 <onleft>60</onleft>
                 <onright condition="Container.Content(songs) + !Window.IsVisible(MyMusicNav.xml)">Back</onright>
                 <onright condition="![Container.Content(songs) + !Window.IsVisible(MyMusicNav.xml)]">9000</onright>
@@ -57,7 +58,7 @@
                         <aligny>center</aligny>
                         <textcolor>PanelFG</textcolor>
                         <font>Font-ListInfo-Small</font>
-                        <label>$VAR[WatchedLabel,,   ]$INFO[ListItem.Label2]</label>
+                        <label>$INFO[ListItem.Label2]</label>
                     </control>
 
                 </itemlayout>
@@ -95,7 +96,7 @@
                         <aligny>center</aligny>
                         <textcolor>Selected</textcolor>
                         <font>Font-ListInfo-Small</font>
-                        <label>$VAR[WatchedLabel,,   ]$INFO[ListItem.Label2]</label>
+                        <label>$INFO[ListItem.Label2]</label>
                     </control>
 
                 </focusedlayout>
@@ -112,6 +113,6 @@
             </control>
         </control>
 
-	</include>
+    </include>
 
 </includes>

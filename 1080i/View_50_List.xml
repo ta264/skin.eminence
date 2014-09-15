@@ -2,8 +2,8 @@
 <!-- Foundation -->
 <includes>
 
-	<include name="View_50_List">
-		<description>List View (id=50)</description>
+    <include name="View_50_List">
+        <description>List View (id=50)</description>
         <control type="group" description="SideLabel">
             <visible>Control.IsVisible(50)</visible>
             <include>Animation.ViewChange</include>     
@@ -26,10 +26,7 @@
                 <height>globalh</height>
                 <width>listw</width>
                 <colordiffuse>PosterBorder</colordiffuse>
-                <texture border="12" flipx="false">common/white.png</texture>
-                <animation condition="Container(50).OnNext" reversible="false" effect="slide" start="0,-33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
-                <animation condition="Container(50).OnPrevious" reversible="false" effect="slide" start="0,33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
-                <visible>substring(Skin.CurrentTheme,Flat,Left)</visible>
+                <texture border="12" flipx="false">common/border-inner.png</texture>
             </control>
 
             <control type="list" id="50">
@@ -88,7 +85,7 @@
                             <control type="image">
                                 <height>listh</height>
                                 <width>listw</width>
-                                <texture border="12" flipx="false">common/border-inner-highlight.png</texture>
+                                <texture border="12" flipx="false" colordiffuse="PosterHighlight">common/white.png</texture>
                                 <animation condition="Container(50).OnNext" reversible="false" effect="slide" start="0,-33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
                                 <animation condition="Container(50).OnPrevious" reversible="false" effect="slide" start="0,33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
                             </control>
@@ -104,7 +101,7 @@
                                     <width>900</width>
                                     <font>Font-Button</font>
                                     <label>$VAR[VARLabel]</label>
-                                    <textcolor>PanelFG</textcolor>
+                                    <textcolor>Selected</textcolor>
                                 </control>
                             </control>
                             <control type="label">
@@ -112,7 +109,7 @@
                                 <width>900</width>
                                 <font>Font-Button</font>
                                 <label>$VAR[VARLabel]</label>
-                                <textcolor>PanelFG</textcolor>
+                                <textcolor>Selected</textcolor>
                                 <visible>![Container.Content(movies) | Container.Content(episodes) | Container.Content(songs) | Container.Content(seasons) | Container.Content(tvshows)]</visible>
                             </control>
                             <control type="label">
@@ -121,7 +118,7 @@
                                 <font>Font-ListInfo-Small</font>
                                 <align>right</align>
                                 <label>$INFO[ListItem.Label2]</label>
-                                <textcolor>PanelFG</textcolor>
+                                <textcolor>Selected</textcolor>
                             </control>
                         </control>
                         <control type="group">
@@ -170,7 +167,7 @@
                         <texture border="5" colordiffuse="PosterBorder">common/border-inner.png</texture>
                     </control>
                     <control type="group" description="SQUARE">
-                        <visible>!Container.Content(seasons) + !Container.Content(sets) + !Container.Content(movies) + !Container.Content(episodes) + !Container.Content(tvshows) + !stringcompare(ListItem.Label,..)</visible>
+                        <visible>!Window.IsVisible(MyVideoPlaylist.xml) + !Container.Content(seasons) + !Container.Content(sets) + !Container.Content(movies) + !Container.Content(episodes) + !Container.Content(tvshows) + !stringcompare(ListItem.Label,..)</visible>
                         <posx>globalpad</posx>
                         <control type="image">
                             <posy>globalpad</posy>
@@ -184,7 +181,6 @@
                             <posy>470</posy>
                             <height>200</height>
                             <width>bigposterwplot</width>
-                            <textcolor>Selected</textcolor>
                             <align>justify</align>
                             <font>Font-ListInfo</font>
                             <label>$VAR[PlotBox]</label>
@@ -195,13 +191,12 @@
                             <posy>0</posy>
                             <height>1</height>
                             <width>1</width>
-                            <textcolor>Selected</textcolor>
                             <align>justify</align>
                             <font>Font-ListInfo</font>
                             <label>$VAR[PlotBox]</label>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(Control.GetLabel(21001)</visible>
+                            <visible>IsEmpty(Control.GetLabel(21001))</visible>
                             <control type="textbox">
                                 <posx>globalpad</posx>
                                 <posy>480</posy>
@@ -209,7 +204,6 @@
                                 <width>bigposterwplot</width>
                                 <align>center</align>
                                 <font>Font-Button</font>
-                                <textcolor>Selected</textcolor>
                                 <label>$VAR[VARLabel]</label>
                             </control>
                             <control type="textbox">
@@ -219,7 +213,6 @@
                                 <width>bigposterwplot</width>
                                 <align>center</align>
                                 <font>Font-ListInfo</font>
-                                <textcolor>Selected</textcolor>
                                 <label>$INFO[ListItem.Label2]</label>
                             </control>
                         </control>
@@ -244,7 +237,7 @@
                         </control>
                     </control>
                     <control type="group" description="INFO">
-                        <visible>[Container.Content(episodes) | [Skin.HasSetting(listview.tvinfo) + Container.Content(tvshows)] | [Skin.HasSetting(listview.info) + Container.Content(movies)]] + !stringcompare(ListItem.Label,..)</visible>
+                        <visible>[Window.IsVisible(MyVideoPlaylist.xml) | Container.Content(episodes) | [Skin.HasSetting(listview.tvinfo) + Container.Content(tvshows)] | [Skin.HasSetting(listview.info) + Container.Content(movies)]] + !stringcompare(ListItem.Label,..)</visible>
                         <posx>globalpad</posx>
                         <height>bigposterhborder</height>
                         <control type="image">
@@ -300,6 +293,6 @@
             
         </control>
 
-	</include>
+    </include>
 
 </includes>

@@ -5,6 +5,9 @@
         <control type="group">
             <posx>400r</posx>
             <visible>!Window.IsVisible(DialogProgress.xml)</visible>
+            <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
+            <visible>!Window.IsVisible(DialogOK.xml)</visible>
+            <visible>!Window.IsVisible(DialogYesNo.xml)</visible>
             <visible>!Window.IsVisible(fullscreenvideo)</visible>
             <visible>!Window.IsVisible(visualisation)</visible>
             <control type="group">
@@ -22,7 +25,7 @@
                     <posx>282</posx>
                     <posy>27</posy>
                     <width>100</width>
-                    <height>100</height>	
+                    <height>100</height>    
                     <texture>$INFO[Control.GetLabel(32),dialog/progress/p,.png]</texture>
                     <aspectratio align="center" aligny="center">keep</aspectratio>
                 </control>

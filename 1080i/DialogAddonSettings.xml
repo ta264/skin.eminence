@@ -4,7 +4,7 @@
     <defaultcontrol always="true">2</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
     <controls>
-    
+        
         <control type="group">
             <posx>horzpad</posx>
             <posy>70</posy>
@@ -32,8 +32,6 @@
             <visible>!Window.IsVisible(LockSettings.xml)</visible>
             <visible>!Window.IsVisible(DialogSelect.xml)</visible>
 
-
-            <!-- LEFT LIST -->
             <control type="grouplist" id="9">
                 <include>DefSettingsLeftGroup</include>
                 <onright>2</onright>
@@ -46,19 +44,16 @@
                 <align>left</align>
                 <textcolor>Disabled</textcolor>
                 <width>393</width>
-                <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
-
+                <texturefocus border="12" colordiffuse="PosterHighlight">common/white.png</texturefocus>
             </control>
             
-            
-            <!-- RIGHT LIST -->
             <control type="grouplist" id="2">
                 <description>Control Area</description>
                 <pagecontrol>10</pagecontrol>
                 <include>DefSettingsRightGroup</include>
                 <onleft>9</onleft>
                 <onright>10</onright>
-                <onup>-</onup>
+                <onup>noop</onup>
                 <ondown>10</ondown>
             </control>
 
@@ -66,73 +61,59 @@
                 <description>Default Button</description>
                 <align>left</align>
                 <font>Font-ListInfo</font>
-                <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                <texturefocus border="12" colordiffuse="PosterHighlight">common/white.png</texturefocus>
             </control>
 
             <control type="radiobutton" id="4">
                 <description>Default Radio Button</description>
-                <radioposx>950</radioposx>
                 <align>left</align>
                 <font>Font-ListInfo</font>
-                <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                <texturefocus border="12" colordiffuse="PosterHighlight">common/white.png</texturefocus>
             </control>
 
             <control type="spincontrolex" id="5">
                 <description>Default Spin Control</description>
                 <align>left</align>
                 <font>Font-ListInfo</font>
-                <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                <texturefocus border="12" colordiffuse="PosterHighlight">common/white.png</texturefocus>
             </control>
 
             <control type="label" id="7">
                 <textoffsetx>30</textoffsetx>
-                <label>-</label>
                 <textcolor>Highlight-NF</textcolor>
             </control>
 
             <control type="image" id="6">
                 <description>Default Seperator</description>
                 <height>-3</height>
-                <texture>-</texture>
+                <texture>noop</texture>
             </control>
 
             <control type="sliderex" id="8">
                 <description>Default Slider</description>
                 <font>Font-ListInfo</font>
-                <texturefocus border="12">common/border-inner-highlight.png</texturefocus>
+                <texturefocus border="12" colordiffuse="PosterHighlight">common/white.png</texturefocus>
             </control>
             
-            
-            <!-- OK CANCEL DEFAULTS -->
-            
             <control type="grouplist">
-                <posx>265</posx>
-                <posy>705</posy>
-                <width>1390</width>
-                <align>center</align>
                 <itemgap>32</itemgap>
                 <onup>2</onup>
-                <orientation>horizontal</orientation>
+                <include>DefSettingsOKCancelGroup</include>
                 <control type="button" id="10">
                     <label>186</label>
                     <include>DefSettingsOKCancelButton</include>
-
                 </control>
 
                 <control type="button" id="11">
                     <description>Cancel</description>
                     <label>222</label>
-
                     <include>DefSettingsOKCancelButton</include>
-    
                 </control>
                 
                 <control type="button" id="12">
                     <description>Defaults Button</description>
                     <label>409</label>
-
                     <include>DefSettingsOKCancelButton</include>
-
                 </control>
             </control>
             

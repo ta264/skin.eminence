@@ -3,8 +3,7 @@
 <window id="3">
     <defaultcontrol always="true">20</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
-    <include condition="Skin.HasSetting(home.autopop)">GoBackToHome</include>    
-
+    
     <controls>
 
         <include>GlobalBackground</include>
@@ -12,7 +11,7 @@
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <visible>!Window.IsVisible(DialogMediaSource.xml)</visible>
-            <animation effect="slide" end="-233" start="0" time="200" condition="Window.IsActive(DialogContextMenu.xml)">Conditional</animation>
+            <animation effect="slide" end="horznegpad" start="0" time="200" condition="Window.IsActive(DialogContextMenu.xml)">Conditional</animation>
 
             <control type="group">
                 <description>Left panel</description>
@@ -28,7 +27,6 @@
                     <width>780</width>
                     <font>Font-ListInfo-Small</font>                    
                     <align>left</align>
-                    <label>-</label>
                 </control>
 
                 <control type="list" id="20">
@@ -49,7 +47,6 @@
                             <width>643</width>
                             <font>Font-Button</font>
                             <label>$INFO[ListItem.Label]</label>
-                            <textcolor>PanelFG</textcolor>
                             <selectedcolor>Keyboard</selectedcolor>
                         </control>
                         <control type="label">
@@ -58,7 +55,6 @@
                             <font>Font-ListInfo-Small</font>
                             <align>right</align>
                             <label>$INFO[ListItem.Label2]</label>
-                            <textcolor>PanelFG</textcolor>
                             <selectedcolor>Keyboard</selectedcolor>
                         </control>
                     
@@ -69,7 +65,7 @@
                             <visible>Control.HasFocus(20)</visible>
                             <height>listh</height>
                             <width>bannerwborder</width>
-                            <texture border="12" flipx="false">common/border-inner-highlight.png</texture>
+                            <texture border="12" flipx="false" colordiffuse="PosterHighlight">common/white.png</texture>
                             <animation condition="Container(20).OnNext" reversible="false" effect="slide" start="0,-33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
                             <animation condition="Container(20).OnPrevious" reversible="false" effect="slide" start="0,33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
                         </control>
@@ -111,7 +107,6 @@
                     <posy>831</posy>
                     <width>480</width>
                     <align>left</align>
-                    <label>-</label>
                     <font>Font-ListInfo-Small</font>
                 </control>
 
@@ -131,7 +126,6 @@
                     <width>780</width>
                     <font>Font-ListInfo-Small</font>                    
                     <align>left</align>
-                    <label>-</label>
                 </control>
 
                 <control type="list" id="21">
@@ -151,7 +145,6 @@
                             <width>643</width>
                             <font>Font-Button</font>
                             <label>$INFO[ListItem.Label]</label>
-                            <textcolor>PanelFG</textcolor>
                             <selectedcolor>Keyboard</selectedcolor>
                         </control>
                         <control type="label">
@@ -160,7 +153,6 @@
                             <font>Font-ListInfo-Small</font>
                             <align>right</align>
                             <label>$INFO[ListItem.Label2]</label>
-                            <textcolor>PanelFG</textcolor>
                             <selectedcolor>Keyboard</selectedcolor>
                         </control>
                     
@@ -171,7 +163,7 @@
                             <visible>Control.HasFocus(21)</visible>
                             <height>listh</height>
                             <width>bannerwborder</width>
-                            <texture border="12" flipx="false">common/border-inner-highlight.png</texture>
+                            <texture border="12" flipx="false" colordiffuse="PosterHighlight">common/white.png</texture>
                             <animation condition="Container(21).OnNext" reversible="false" effect="slide" start="0,-33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
                             <animation condition="Container(21).OnPrevious" reversible="false" effect="slide" start="0,33" end="0,0" time="300" tween="back" easing="out">Focus</animation>
                         </control>
@@ -213,7 +205,6 @@
                     <posy>831</posy>
                     <width>480</width>
                     <align>left</align>
-                    <label>-</label>
                     <font>Font-ListInfo-Small</font>
                 </control>
 

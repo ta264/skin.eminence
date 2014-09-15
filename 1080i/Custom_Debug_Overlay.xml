@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window type="dialog" id="50">
 	<zorder>100</zorder>
@@ -24,7 +24,11 @@
 			<visible>!Skin.HasSetting(HideDebugInfo)</visible>
 
 			<!-- Window labels -->
-
+            <control type="label">
+				<include>WindowID</include>
+				<label>Return to $INFO[Window(home).Property(previoushub)]</label>
+			</control>
+            
 			<control type="label">
 				<include>WindowID</include>
 				<label>AddonBrowser.xml</label>

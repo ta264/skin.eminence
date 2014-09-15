@@ -2,28 +2,27 @@
 <!-- Foundation -->
 <window id="502">
     <include>50Focus</include>
-	<allowoverlay>yes</allowoverlay>
-	<background>0</background>
-    <include condition="Skin.HasSetting(home.autopop)">GoBackToHome</include>    
-	<views>50,51,52,53,54,55,56</views>
-	<onunload>ClearProperty(focushub,home)</onunload>
+    <allowoverlay>yes</allowoverlay>
+    <background>0</background>
+    <views>50,51,500,53,54,55,56</views>
+    <onunload>ClearProperty(focushub,home)</onunload>
 
-	<controls>
+    <controls>
 
-		<control type="radiobutton" id="19">
-			<description>Filter (hidden)</description>
-			<include>HiddenButton</include>
-		</control>
+        <control type="radiobutton" id="19">
+            <description>Filter (hidden)</description>
+            <include>HiddenButton</include>
+        </control>
 
-		<include>GlobalBackground</include>
+        <include>GlobalBackground</include>
 
 
-		<include>DefMyNavViews</include>
-		
-		<include>DefFullScreenNav</include>
-		
-		
-		
+        <include>DefMyNavViews</include>
+        
+        <include>DefFullScreenNav</include>
+        
+        
+        
         <include>GlobalTopBar</include>
         
         
@@ -31,6 +30,7 @@
         <control type="group">   
             <include>DefMyNavBar</include>  
             <control type="grouplist" id="9000">
+                <visible>!Skin.HasSetting(kioskmode)</visible>
                 <include>DefMyNavBarGroupList</include>
 
                 <control type="button" id="2">
@@ -45,11 +45,11 @@
                 
                 <control type="togglebutton" id="4">
                     <include>DefNavMenuButton</include>
-                    <alttexturefocus>-</alttexturefocus>
-                    <alttexturenofocus>-</alttexturenofocus>
+                    <alttexturefocus>noop</alttexturefocus>
+                    <alttexturenofocus>noop</alttexturenofocus>
                     <label>584</label>
-					<altlabel>585</altlabel>
-					<usealttexture>Container.SortDirection(Ascending)</usealttexture>
+                    <altlabel>585</altlabel>
+                    <usealttexture>Container.SortDirection(Ascending)</usealttexture>
                 </control>
                 
                 <control type="togglebutton" id="9007">
@@ -60,8 +60,8 @@
                     <label>31150</label>
                     <altlabel>31151</altlabel>
                     <usealttexture>Skin.HasSetting(wallviewmusic.info)</usealttexture>
-                    <alttexturefocus>-</alttexturefocus>
-                    <alttexturenofocus>-</alttexturenofocus>
+                    <alttexturefocus>noop</alttexturefocus>
+                    <alttexturenofocus>noop</alttexturenofocus>
                 </control>
                 
                 <control type="button" id="5">
@@ -86,6 +86,13 @@
                     <label>137</label>
                 </control>
                 
+                <control type="togglebutton" id="20" description="Update library">
+                    <label>653</label>
+                    <altlabel>13353</altlabel>
+                    <usealttexture>library.isscanningvideo</usealttexture>
+                    <include>DefNavMenuButton</include>
+                </control>
+                
                 <control type="button" id="98">
                     <description>Open Home Jumplist</description>
                     <include>DefNavMenuButton</include>
@@ -93,26 +100,22 @@
                     <onclick>ActivateWindow(playercontrols)</onclick>
                 </control>
 
-                <control type="togglebutton" id="16">
+                <control type="radiobutton" id="16">
                     <description>PartyMode</description>
                     <include>DefNavMenuButton</include>
                     <label>589</label>
-                    <altlabel>✓  $LOCALIZE[589]</altlabel>
-                    <usealttexture>MusicPartyMode.Enabled</usealttexture>
-                    <alttexturefocus>-</alttexturefocus>
-                    <alttexturenofocus>-</alttexturenofocus>
+                    <selected>MusicPartyMode.Enabled</selected>
+                    
                     <visible>!Container.Content(musicvideos)</visible>
                 </control>
                 
-                <control type="togglebutton" id="9023">
+                <control type="radiobutton" id="9023">
                     <description>PartyMode</description>
                     <include>DefNavMenuButton</include>
                     <onclick>PlayerControl(Partymode(video))</onclick>
                     <label>589</label>
-                    <altlabel>✓  $LOCALIZE[589]</altlabel>
-                    <usealttexture>MusicPartyMode.Enabled</usealttexture>
-                    <alttexturefocus>-</alttexturefocus>
-                    <alttexturenofocus>-</alttexturenofocus>
+                    <selected>MusicPartyMode.Enabled</selected>
+                    
                     <visible>Container.Content(musicvideos)</visible>
                 </control>
                 
@@ -145,6 +148,6 @@
             <content target="music">$VAR[9360Content]</content>
 
         </control>
-	</controls>
+    </controls>
 
 </window>
